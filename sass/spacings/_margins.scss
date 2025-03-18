@@ -1,0 +1,46 @@
+@include ResponsiveSpacing(margin, "m");
+@include ResponsiveSpacing(margin-left, "ml");
+@include ResponsiveSpacing(margin-right, "mr");
+@include ResponsiveSpacing(margin-top, "mt");
+@include ResponsiveSpacing(margin-bottom, "mb");
+
+@for $i from 1 through 12 {
+  .mx-#{$i} {
+    margin-left: #{$i * $spacing};
+    margin-right: #{$i * $spacing};
+  }
+  .my-#{$i} {
+    margin-top: #{$i * $spacing};
+    margin-bottom: #{$i * $spacing};
+  }
+}
+
+@each $name, $size in $breakpoints {
+  @media (min-width: $size) {
+    @for $i from 1 through 12 {
+      .mx-#{$name}-#{$i} {
+        margin-left: #{$i * $spacing};
+        margin-right: #{$i * $spacing};
+      }
+      .my-#{$name}-#{$i} {
+        margin-top: #{$i * $spacing};
+        margin-bottom: #{$i * $spacing};
+      }
+    }
+  }
+}
+
+@each $name, $size in $breakpoints {
+  @media (min-width: $size) {
+    @for $i from 1 through 12 {
+      .mx-#{$name}-#{$i} {
+        margin-left: #{$i * $spacing};
+        margin-right: #{$i * $spacing};
+      }
+      .my-#{$name}-#{$i} {
+        margin-top: #{$i * $spacing};
+        margin-bottom: #{$i * $spacing};
+      }
+    }
+  }
+}

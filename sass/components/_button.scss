@@ -1,0 +1,54 @@
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+$btn-colors: (
+  primary: #007bff,
+  secondary: #6c757d,
+  success: #28a745,
+  danger: #dc3545,
+  warning: #ffc107,
+  info: #17a2b8,
+  light: #f8f9fa,
+  dark: #343a40,
+);
+
+@each $name, $color in $btn-colors {
+  .btn-#{$name} {
+    background-color: $color;
+    color: if(lightness($color) > 50, #000, #fff);
+
+    &:hover {
+      background-color: lighten($color, 10%);
+      color: if(lightness($color) > 50, #000, #fff);
+    }
+
+    &:active {
+      background-color: darken($color, 10%);
+      color: if(lightness($color) > 50, #000, #fff);
+    }
+  }
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.btn-lg {
+  padding: 14px 28px;
+  font-size: 18px;
+}

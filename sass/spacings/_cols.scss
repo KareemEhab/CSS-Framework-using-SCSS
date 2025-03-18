@@ -1,0 +1,5 @@
+@include ColLayout(12);
+
+@each $name, $size in $breakpoints {
+  @include ColLayout(12, $name, $size);
+}

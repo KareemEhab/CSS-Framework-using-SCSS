@@ -1,0 +1,31 @@
+@include ResponsiveSpacing(padding, "p");
+@include ResponsiveSpacing(padding-left, "pl");
+@include ResponsiveSpacing(padding-right, "pr");
+@include ResponsiveSpacing(padding-top, "pt");
+@include ResponsiveSpacing(padding-bottom, "pb");
+
+@for $i from 1 through 12 {
+  .px-#{$i} {
+    padding-left: #{$i * $spacing};
+    padding-right: #{$i * $spacing};
+  }
+  .py-#{$i} {
+    padding-top: #{$i * $spacing};
+    padding-bottom: #{$i * $spacing};
+  }
+}
+
+@each $name, $size in $breakpoints {
+  @media (min-width: $size) {
+    @for $i from 1 through 12 {
+      .px-#{$name}-#{$i} {
+        padding-left: #{$i * $spacing};
+        padding-right: #{$i * $spacing};
+      }
+      .py-#{$name}-#{$i} {
+        padding-top: #{$i * $spacing};
+        padding-bottom: #{$i * $spacing};
+      }
+    }
+  }
+}
